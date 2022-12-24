@@ -20,9 +20,11 @@ public class Money implements Expression {
     protected String currency() {
         return currency;
     }
+    @Override
     public Expression times(int multiplier) {
         return new Money(amount * multiplier, currency);
     }
+    @Override
     public Expression plus(Expression addend) {
         return new Sum(this, addend);
     }
