@@ -8,6 +8,8 @@ public class Bank {
 
     public Money reduce(Expression expression, String currency) {
         return expression.reduce(this, currency);
+
+
     }
 
     public void addRate(String from, String to, int rate) {

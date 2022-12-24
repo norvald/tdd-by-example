@@ -20,10 +20,12 @@ public class Money implements Expression {
     protected String currency() {
         return currency;
     }
-    public Money times(int multiplier) {
+    public Expression times(int multiplier) {
         return new Money(amount * multiplier, currency);
     }
-
+    public Expression plus(Expression addend) {
+        return new Sum(this, addend);
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -53,7 +55,4 @@ public class Money implements Expression {
                 '}';
     }
 
-    public Expression plus(Money addend) {
-        return new Sum(this, addend);
-    }
 }
